@@ -1,13 +1,22 @@
 <template>
+	<banner></banner>
+	<enter></enter>
     <div class="loading"> 	
-    </div>
+    </div>  
 </template>
 <script>
+	import enter from './enter';
+	import banner from './banner';
 	export default {
+		data(){
+			return{
+
+			}
+		},
 		ready: function () {
-			$('.loading').on('click',function(){
-				console.log("11")
-			})
+		},
+		components:{
+			enter,banner
 		}
 	}
 </script>
