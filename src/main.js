@@ -2,9 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import $ from 'n-zepto'
 import swiper from 'swiper'
+import banner from './components/banner'
+import enter from './components/enter'
 
 Vue.config.debug = true;
-var App = Vue.extend({});
+var App = Vue.extend({
+    components:{banner,enter}
+});
 Vue.use(VueRouter);
 
 var router = new VueRouter();
