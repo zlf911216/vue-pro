@@ -28,6 +28,11 @@ router.map({
             require(['./components/c.vue'], resolve)
         }
     },
+    '/d': {
+        component: function (resolve) {
+            require(['./components/d.vue'], resolve)
+        }
+    },
     '/':{
         component: function (resolve) {
             require(['./components/a.vue'], resolve)

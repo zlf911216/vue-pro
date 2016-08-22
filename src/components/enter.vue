@@ -1,9 +1,9 @@
 <template>
     <div class="phone_top" flex="dir:left box:mean">
-		<div v-link="{path:'/a',activeClass:'choose_tag'}">首页</div>
+		<div v-link="{path:'/a',activeClass:'choose_tag'}">关于我</div>
 		<div v-link="{path:'/b',activeClass:'choose_tag'}">文章</div>
 		<div v-link="{path:'/c',activeClass:'choose_tag'}">旅游日记</div>
-		<div v-link="{path:'/d',activeClass:'choose_tag'}">关于我</div>	
+		<div v-link="{path:'/d',activeClass:'choose_tag'}">吃~</div>	
     </div>
 </template>
 <script>

@@ -32,6 +32,7 @@
 		<p class="travel_message">西湖可以分为北线、西线和南线三条线路，今天先游览北线和西线的一部分，从白娘子与许仙相识的断桥开始，穿过白堤，到达风景如画的孤山，在这里我们可以品茶赏景，出了孤山不远便是...</p>
 		<div class="see_more" flex="dir:top cross:center">查看全文</div>
      </div>
+     <div class="down_nav"></div>
      <div class="loading_more">点击加载更多</div>
 </template>
 <script>
@@ -66,6 +67,7 @@
 		color:#666;
 	}
 	.travel_top_img{
+		position: relative;
 		width: 90%;
 		margin: 0.5rem auto 0 auto;
 		height: 0;
@@ -75,6 +77,10 @@
 		border:0.2rem solid rgba(131,175,155,0.5);
 	}
 	.travel_top_img img{
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translate(0,-50%);
 		display: block;
 		width: 100%;
 		height: auto;
@@ -101,8 +107,16 @@
 		padding: 0 0.8rem;
 		line-height: 1.4rem;
 	}
-	.loading_more{
+	.down_nav{
 		margin-top: 1.5rem;
+		height: 2.3rem;
+		visibility: hidden;
+	}
+	.loading_more{
+		position: fixed;
+		left:0;
+		bottom: 0;
+		width: 100%;
 		text-align: center;
 		line-height: 2.3rem;
 		background: rgba(174,211,129,0.85);

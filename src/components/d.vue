@@ -1,35 +1,19 @@
 <template>
      <div class="travel_list">
      	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- Vue.js --</span>
-     		<span class="travel_time">2016-8-22</span>
+     		<span class="travel_name">-- 糖醋鲤鱼 --</span>
+     		<span class="travel_time">2016-8-10</span>
      	</p>
-     	<div class="travel_top_img">
-     		<img src="../assets/images/vue.jpg" alt="">
+     	<div class="difficult" flex="dir:left cross:center">
+     		<span>难度：</span>
+     		<div class="star"></div>
+     		<div class="star"></div>
+     		<div class="star"></div>
      	</div>
-		<p class="travel_message">Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...</p>
-		<div class="see_more" flex="dir:top cross:center">查看全文</div>
-     </div>
-     <div class="travel_list">
-     	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- Vue.js --</span>
-     		<span class="travel_time">2016-8-22</span>
-     	</p>
      	<div class="travel_top_img">
-     		<img src="../assets/images/vue.jpg" alt="">
+     		<img src="../assets/images/fish.jpg" alt="">
      	</div>
-		<p class="travel_message">Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...</p>
-		<div class="see_more" flex="dir:top cross:center">查看全文</div>
-     </div>
-     <div class="travel_list">
-     	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- Vue.js --</span>
-     		<span class="travel_time">2016-8-22</span>
-     	</p>
-     	<div class="travel_top_img">
-     		<img src="../assets/images/vue.jpg" alt="">
-     	</div>
-		<p class="travel_message">Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...</p>
+		<p class="travel_message">“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当初这里...</p>
 		<div class="see_more" flex="dir:top cross:center">查看全文</div>
      </div>
      <div class="down_nav"></div>
@@ -65,6 +49,11 @@
 	.travel_time{
 		font-size:0.8rem;
 		color:#666;
+	}
+	.difficult{
+		width: 90%;
+		margin: 0.5rem auto 0 auto;
+		font-weight: bold;
 	}
 	.travel_top_img{
 		position: relative;
@@ -123,5 +112,11 @@
 		color: white;
 		word-spacing: 0.1rem;
 		letter-spacing: 0.1rem;
+	}
+	.star{
+		width: 1rem;
+		height: 1rem;
+		background: url(../assets/images/star.jpg) no-repeat;
+		background-size: 100% auto;
 	}
 </style>
