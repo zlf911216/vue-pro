@@ -1,29 +1,39 @@
 <template>
-     <div class="travel_list">
-     	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- 糖醋鲤鱼 --</span>
-     		<span class="travel_time">2016-8-10</span>
-     	</p>
-     	<div class="difficult" flex="dir:left cross:center">
+	<div class="travel_list" v-for="item in message">
+		<p class="travel_title" flex="dir:left main:justify cross:center">
+			<span class="travel_name">
+				<span>-- </span>
+				<span>{{item.name}}</span>
+				<span> --</span>
+			</span>
+			<span class="travel_time">{{item.time}}</span>
+		</p>
+		<div class="difficult" flex="dir:left cross:center">
      		<span>难度：</span>
-     		<div class="star"></div>
-     		<div class="star"></div>
-     		<div class="star"></div>
+     		<div class="star" v-for="n in item.difficult"></div>
      	</div>
-     	<div class="travel_top_img">
-     		<img src="../assets/images/fish.jpg" alt="">
-     	</div>
-		<p class="travel_message">“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当初这里...</p>
+		<div class="travel_top_img">
+			<img :src='item.top_img'>
+		</div>
+		<p class="travel_message">{{item.message}}</p>
 		<div class="see_more" flex="dir:top cross:center">查看全文</div>
-     </div>
-     <div class="down_nav"></div>
-     <div class="loading_more">点击加载更多</div>
+	</div>
+	<div class="down_nav"></div>
+	<div class="loading_more">点击加载更多</div>
 </template>
 <script>
 	export default {
 		data(){
 			return{
-
+				message:[
+					{
+						name:'糖醋鲤鱼',
+						time:'2016-8-12',
+						difficult:3,
+						top_img:require('../assets/images/fish.jpg'),
+						message:'“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当...'
+					}
+				]
 			}
 		},
 		ready: function () {

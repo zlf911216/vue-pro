@@ -1,35 +1,17 @@
 <template>
-     <div class="travel_list">
+     <div class="travel_list" v-for="item in message">
      	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- Vue.js --</span>
-     		<span class="travel_time">2016-8-22</span>
+     		<span class="travel_name">
+     			<span>-- </span>
+     			<span>{{item.name}}</span>
+     			<span> --</span>
+     		</span>
+     		<span class="travel_time">{{item.time}}</span>
      	</p>
      	<div class="travel_top_img">
-     		<img src="../assets/images/vue.jpg" alt="">
+     		<img :src='item.top_img'>
      	</div>
-		<p class="travel_message">Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...</p>
-		<div class="see_more" flex="dir:top cross:center">查看全文</div>
-     </div>
-     <div class="travel_list">
-     	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- Vue.js --</span>
-     		<span class="travel_time">2016-8-22</span>
-     	</p>
-     	<div class="travel_top_img">
-     		<img src="../assets/images/vue.jpg" alt="">
-     	</div>
-		<p class="travel_message">Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...</p>
-		<div class="see_more" flex="dir:top cross:center">查看全文</div>
-     </div>
-     <div class="travel_list">
-     	<p class="travel_title" flex="dir:left main:justify cross:center">
-     		<span class="travel_name">-- Vue.js --</span>
-     		<span class="travel_time">2016-8-22</span>
-     	</p>
-     	<div class="travel_top_img">
-     		<img src="../assets/images/vue.jpg" alt="">
-     	</div>
-		<p class="travel_message">Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...</p>
+		<p class="travel_message">{{item.message}}</p>
 		<div class="see_more" flex="dir:top cross:center">查看全文</div>
      </div>
      <div class="down_nav"></div>
@@ -39,7 +21,26 @@
 	export default {
 		data(){
 			return{
-
+				message:[
+					{
+						name:'vue.js',
+						time:'2016-8-22',
+						top_img:require('../assets/images/vue.jpg'),
+						message:'Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...'
+					},
+					{
+						name:'vue1.js',
+						time:'2016-8-22',
+						top_img:require('../assets/images/vue.jpg'),
+						message:'Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...'
+					},
+					{
+						name:'vue2.js',
+						time:'2016-8-22',
+						top_img:require('../assets/images/vue.jpg'),
+						message:'Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...'
+					}
+				]
 			}
 		},
 		ready: function () {
