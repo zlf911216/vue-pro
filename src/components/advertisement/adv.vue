@@ -83,36 +83,33 @@
 							"userid": _this.vm.userId,
 							"adtype": "OnLoad"
 						});
-						if(_this.vm.loop){
-							_this.vm.$on('run', function () {
-							 	_this.vm.time=setInterval(function() {
-									tj({
-										'tjtype': 'adStatistics',
-										'tjuid': _this.vm.userId,
-										'tjtag': 'ggOnLoad',
-										'eventid': _this.vm.message[tj_num].activeid,
-										"positionid": _this.vm.position,
-										"provinceid": _this.vm.province,
-										"userid": _this.vm.userId,
-										"adtype": "OnLoad"
-									});
-									_this.el.children[0].style.transform = "translateX(" + num * (-width) + "px)"
-									_this.el.children[0].style.transition = "-webkit-transform 0.5s linear 0s"
-									num += 1;
-									tj_num+=1;
-									if(tj_num==max/2){
-										tj_num=0
-									}
-									if (num == max) {
-										num = max/2
-										setTimeout(function() {
-											_this.el.children[0].style.transform = "translateX(" + (num - 1) * (-width) + "px)"
-											_this.el.children[0].style.transition = "-webkit-transform 0s"
-										}, 600)
-									}
-								}, 5000);
-							})
-							_this.vm.$emit('run', 'go')
+						if(_this.vm.loop){							
+						 	_this.vm.time=setInterval(function() {
+								tj({
+									'tjtype': 'adStatistics',
+									'tjuid': _this.vm.userId,
+									'tjtag': 'ggOnLoad',
+									'eventid': _this.vm.message[tj_num].activeid,
+									"positionid": _this.vm.position,
+									"provinceid": _this.vm.province,
+									"userid": _this.vm.userId,
+									"adtype": "OnLoad"
+								});
+								_this.el.children[0].style.transform = "translateX(" + num * (-width) + "px)"
+								_this.el.children[0].style.transition = "-webkit-transform 0.5s linear 0s"
+								num += 1;
+								tj_num+=1;
+								if(tj_num==max/2){
+									tj_num=0
+								}
+								if (num == max) {
+									num = max/2
+									setTimeout(function() {
+										_this.el.children[0].style.transform = "translateX(" + (num - 1) * (-width) + "px)"
+										_this.el.children[0].style.transition = "-webkit-transform 0s"
+									}, 600)
+								}
+							}, 5000);
 						}
 					}
 				},
