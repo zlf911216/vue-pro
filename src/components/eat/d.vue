@@ -16,7 +16,7 @@
 			<img :src='item.top_img'>
 		</div>
 		<p class="travel_message">{{item.message}}</p>
-		<div class="see_more" flex="dir:top cross:center">查看全文</div>
+		<div class="see_more" flex="dir:top cross:center" v-link="{name:'eat_message',params:{userId:item.userid}}">查看全文</div>
 	</div>
 	<div class="down_nav"></div>
 	<div class="loading_more">点击加载更多</div>
@@ -30,8 +30,9 @@
 						name:'糖醋鲤鱼',
 						time:'2016-8-12',
 						difficult:3,
-						top_img:require('../assets/images/fish.jpg'),
-						message:'“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当...'
+						top_img:require('../../assets/images/fish.jpg'),
+						message:'“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当...',
+						userid:"999"
 					}
 				]
 			}
@@ -126,7 +127,7 @@
 	.star{
 		width: 1rem;
 		height: 1rem;
-		background: url(../assets/images/star.jpg) no-repeat;
+		background: url(../../assets/images/star.jpg) no-repeat;
 		background-size: 100% auto;
 	}
 </style>
