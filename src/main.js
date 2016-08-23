@@ -18,7 +18,7 @@ router.map({
             require(['./components/my.vue'], resolve)
         },
         subRoutes:{
-            '/':{
+            '/main':{
                 component: function (resolve) {
                     require(['./components/my/a.vue'], resolve)
                 }
