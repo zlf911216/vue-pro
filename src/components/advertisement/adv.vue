@@ -4,6 +4,7 @@
 			<img v-for="item in message" class="adv_img" :src='item.picUrl' @touchstart="tj_and_link(item.activeid,item.linkUrl)">
 			<img v-for="item in message" class="adv_img" :src='item.picUrl' @touchstart="tj_and_link(item.activeid,item.linkUrl)">
 		</div>
+
 	</div>
 </template>
 <script>
@@ -11,11 +12,20 @@
 		data(){
 			return{
 				run:false,
-				message:null,
-				width:'100%',
-				position:"H5-B1",
-				userId:"474503697",
-				province:null
+				url:null,//广告获取地址	
+				message:null,//广告内容
+				province:null,//用户地区
+				style:null,	
+				userId:'474503697',//用户ID
+				width:'100%',//广告宽度
+				position:'H5-B1',//广告版位
+				loop:true,//是否轮播
+				random:false,//是否随机
+				simple:false,//是否单张显示
+				identifying:true,//右下角是否显示标示
+				identifying_word:"广告",//右下角标示文字
+				voice_url: "/images/blue_voice.png",
+				time:null,
 			}
 		},
 		methods:{
@@ -31,7 +41,9 @@
 					"userid": _this.userId,
 					"adtype": "Click"
 				});
-				location.href=url
+				setTimeout(function(){
+					location.href=url	
+				},300)
 			}
 		},
 		directives:{
@@ -53,27 +65,59 @@
 				},
 				update:function(){
 					if(this.vm.run){
-						var num = 1;
-						var width=$(this.el).width()
-						var max=this.vm.message.length*2
-						$(this.el).width(this.vm.width)
-						$(this.el).children('div').width(width*max)
 						var _this=this
-						setInterval(function() {
-							_this.el.children[0].style.transform = "translateX(" + num * (-width) + "px)";
-							_this.el.children[0].style.transition = "-webkit-transform 0.5s linear 0s";
-							num += 1;
-							console.log(num)
-							console.log(max)
-							if (num == max) {
-								num = max/2;
-								setTimeout(function() {
-									_this.el.children[0].style.transform = "translateX(" + (num - 1) * (-width) + "px)";
-									_this.el.children[0].style.transition = "-webkit-transform 0s";
-								}, 600)
-							}
-						}, 5000);
+						var num = 1;
+						var tj_num=1;
+						var width=$(_this.el).width()
+						_this.el.style.cssText=_this.vm.style
+						var max=_this.vm.message.length*2
+						$(_this.el).width(_this.vm.width)
+						$(_this.el).children('div').width(width*max)
+						tj({
+							'tjtype': 'adStatistics',
+							'tjuid': _this.vm.userId,
+							'tjtag': 'ggOnLoad',
+							'eventid': _this.vm.message[0].activeid,
+							"positionid": _this.vm.position,
+							"provinceid": _this.vm.province,
+							"userid": _this.vm.userId,
+							"adtype": "OnLoad"
+						});
+						if(_this.vm.loop){
+							_this.vm.$on('run', function () {
+							 	_this.vm.time=setInterval(function() {
+									tj({
+										'tjtype': 'adStatistics',
+										'tjuid': _this.vm.userId,
+										'tjtag': 'ggOnLoad',
+										'eventid': _this.vm.message[tj_num].activeid,
+										"positionid": _this.vm.position,
+										"provinceid": _this.vm.province,
+										"userid": _this.vm.userId,
+										"adtype": "OnLoad"
+									});
+									_this.el.children[0].style.transform = "translateX(" + num * (-width) + "px)"
+									_this.el.children[0].style.transition = "-webkit-transform 0.5s linear 0s"
+									num += 1;
+									tj_num+=1;
+									if(tj_num==max/2){
+										tj_num=0
+									}
+									if (num == max) {
+										num = max/2
+										setTimeout(function() {
+											_this.el.children[0].style.transform = "translateX(" + (num - 1) * (-width) + "px)"
+											_this.el.children[0].style.transition = "-webkit-transform 0s"
+										}, 600)
+									}
+								}, 5000);
+							})
+							_this.vm.$emit('run', 'go')
+						}
 					}
+				},
+				unbind:function(){
+					clearInterval(this.vm.time)
 				}
 			}
 		}

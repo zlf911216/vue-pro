@@ -1,4 +1,5 @@
 <template>
+	<adv></adv>
 	<div class="travel_list" v-for="item in message">
 		<p class="travel_title" flex="dir:left main:justify cross:center">
 			<span class="travel_name">
@@ -18,6 +19,7 @@
 	<div class="loading_more">点击加载更多</div>
 </template>
 <script>
+	import adv from '../advertisement/adv' 
 	export default {
 		data(){
 			return{
@@ -47,6 +49,9 @@
 			}
 		},
 		ready: function () {
+		},
+		components:{
+			adv
 		}
 	}
 </script>

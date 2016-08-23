@@ -1,7 +1,6 @@
 <template>
 	<adv></adv>
-	<p>{{userid}}</p>
-	<adv></adv>		
+	<p>{{userid}}</p>	
 </template>
 <script>
 	import adv from '../advertisement/adv' 
