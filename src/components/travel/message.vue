@@ -1,4 +1,5 @@
 <template>
+	<adv></adv>
 	<p>{{userid}}</p>
 	<adv></adv>		
 </template>
