@@ -1,5 +1,4 @@
 <template>
-	<adv></adv>
 	<div class="travel_list" v-for="item in message">
 		<p class="travel_title" flex="dir:left main:justify cross:center">
 			<span class="travel_name">

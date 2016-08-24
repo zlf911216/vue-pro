@@ -1,6 +1,6 @@
 <template>
-	<div class="advertisement_box" v-init="run" :style="style">
-		<div v-if="picturn" class="advertisement_message" flex='dir:left box:mean'>		
+	<div class="advertisement_box" v-init="run" :style="style" v-if="picturn">
+		<div class="advertisement_message" flex='dir:left box:mean'>		
 			<img v-for="item in message" track-by="$index" class="adv_img" :src='item.picUrl' @touchstart="tj_and_link(item.activeid,item.linkUrl)">
 		</div>
 		<div v-show="!myIdentifying" class="advertisement_identifying">{{identifying_word}}</div>
@@ -18,7 +18,7 @@
 				userId:'474503697',//用户ID
 				identifying_word:"广告",//右下角标示文字
 				voice_url: "/images/blue_voice.png",
-				picturn:true,
+				picturn:false,
 				time:null,
 			}
 		},
