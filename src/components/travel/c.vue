@@ -1,10 +1,13 @@
 <template>	
-	<div flex="dir:left main:center cross:center" class="new_travel_message"><i><img :src='writeMessage'></i>发表新文章</div>
+	<div flex="dir:left main:center cross:center" class="new_travel_message">
+		<i><img :src='writeMessage'></i>
+		发表新游记
+	</div>
 	<div class="travel_list" v-for="item in message" track-by="$index">
 		<div v-if='item.adv' class="adv_box">
 			<adv-picture my-style='{"width":"100%"}' my-random='false' my-position="H5-B1"></adv-picture>		
 		</div>
-		<div v-else class="travel_box">
+		<div v-else class="travel_box" @click="getinmessage(item.userid)">
 			<p class="travel_title" flex="dir:left main:justify cross:center">
 				<span class="travel_name">
 					<span>-- </span>
@@ -17,9 +20,10 @@
 				<img :src='item.top_img'>
 			</div>
 			<p class="travel_message">{{item.message}}</p>
-			<div class="see_more" flex="dir:top cross:center" v-link="{name:'travel_message',params:{userId:item.userid}}">查看全文</div>
+			<div class="see_more" flex="dir:top cross:center" @click.stop="con">查看全文</div>
 		</div>
 	</div>
+	<div class="goto_top"></div>
 	<div class="down_nav"></div>
 	<div class="loading_more" @click="load">点击加载更多</div>
 </template>
@@ -36,14 +40,20 @@
 			load:function(){
 				var _this=this
 				$.ajax({
-				url: '/travel',
-				type: 'post',
-				dataType: 'json',
-				success:function(data){
-					data.message.splice(2,0,{adv:true})
-					_this.message=_this.message.concat(data.message)
-				}
-			})	
+					url: '/travel',
+					type: 'post',
+					dataType: 'json',
+					success:function(data){
+						data.message.splice(2,0,{adv:true})
+						_this.message=_this.message.concat(data.message)
+					}
+				})	
+			},
+			con:function(){
+				console.log(11)
+			},
+			getinmessage:function(id){
+				this.$route.router.go('/index/travel/'+id)
 			}
 		},
 		ready: function () {
@@ -65,7 +75,22 @@
 </script>
 <style scoped lang='scss'>
 	.new_travel_message{
-
+		font-weight: bold;
+		line-height: 2.8rem;
+		word-spacing: 0.1rem;
+		letter-spacing: 0.1rem;
+		font-size: 1.1rem;
+		background: url(../../assets/images/travel_back.jpg) white no-repeat;
+		background-size: 130% auto;
+		background-position:85% 29%;
+		color: #5d3d00;
+	}
+	.new_travel_message i{
+		height: 1.5rem;
+	}
+	.new_travel_message i img{
+		display: block;
+		height: 100%;
 	}
 	.travel_list{
 		position: relative;
@@ -131,7 +156,7 @@
 	}
 	.down_nav{
 		margin-top: 1.5rem;
-		height: 2.3rem;
+		height: 2.8rem;
 		visibility: hidden;
 	}
 	.loading_more{
@@ -140,10 +165,13 @@
 		bottom: 0;
 		width: 100%;
 		text-align: center;
-		line-height: 2.3rem;
+		line-height: 2.8rem;
 		background: rgba(174,211,129,0.85);
 		color: white;
 		word-spacing: 0.1rem;
 		letter-spacing: 0.1rem;
+	}
+	.goto_top{
+
 	}
 </style>

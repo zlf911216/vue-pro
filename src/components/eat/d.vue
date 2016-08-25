@@ -1,22 +1,23 @@
 <template>
-	<div class="travel_list" v-for="item in message">
-		<p class="travel_title" flex="dir:left main:justify cross:center">
-			<span class="travel_name">
-				<span>-- </span>
-				<span>{{item.name}}</span>
-				<span> --</span>
-			</span>
-			<span class="travel_time">{{item.time}}</span>
-		</p>
-		<div class="difficult" flex="dir:left cross:center">
-     		<span>难度：</span>
-     		<div class="star" v-for="n in item.difficult"></div>
-     	</div>
-		<div class="travel_top_img">
-			<img :src='item.top_img'>
+	<div class="travel_list" v-for="item in message" track-by="$index">
+		<div v-if='item.adv' class="adv_box">
+			<adv-picture my-style='{"width":"100%"}' my-random='false' my-position="H5-B1"></adv-picture>		
 		</div>
-		<p class="travel_message">{{item.message}}</p>
-		<div class="see_more" flex="dir:top cross:center" v-link="{name:'eat_message',params:{userId:item.userid}}">查看全文</div>
+		<div v-else class="travel_box" @click="getinmessage(item.userid)">
+			<p class="travel_title" flex="dir:left main:justify cross:center">
+				<span class="travel_name">
+					<span>-- </span>
+					<span>{{item.name}}</span>
+					<span> --</span>
+				</span>
+				<span class="travel_time">{{item.time}}</span>
+			</p>
+			<div class="travel_top_img">
+				<img :src='item.top_img'>
+			</div>
+			<p class="travel_message">{{item.message}}</p>
+			<div class="see_more" flex="dir:top cross:center" @click.stop="con">查看全文</div>
+		</div>
 	</div>
 	<div class="down_nav"></div>
 	<div class="loading_more">点击加载更多</div>
@@ -35,6 +36,14 @@
 						userid:"999"
 					}
 				]
+			}
+		},
+		methods:{
+			con:function(){
+				console.log(11)
+			},
+			getinmessage:function(id){
+				this.$route.router.go('/index/eat/'+id)
 			}
 		},
 		ready: function () {
