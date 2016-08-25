@@ -1,5 +1,8 @@
+
+<!-- 	<adv my-style='{"width":"100%"}' my-loop='false' my-random='false' my-position="H5-B1" my-identifying='false' my-word="你好"></adv> -->
+
 <template>
-	<div class="advertisement_box" v-init="run" :style="style" v-if="picturn">
+	<div class="advertisement_box" v-init="run" :style="style">
 		<div class="advertisement_message" flex='dir:left box:mean'>		
 			<img v-for="item in message" track-by="$index" class="adv_img" :src='item.picUrl' @touchstart="tj_and_link(item.activeid,item.linkUrl)">
 		</div>
@@ -20,6 +23,7 @@
 				voice_url: "/images/blue_voice.png",
 				picturn:false,
 				time:null,
+				time2:null
 			}
 		},
 		props:['myStyle','myLoop','myRandom','myPosition','myIdentifying','myWord'],
@@ -99,7 +103,7 @@
 								_this.el.children[0].style.webkitTransition = "-webkit-transform 0.5s linear 0s"
 								if (num == max-1) {
 									num = max/2-1
-									setTimeout(function() {
+									_this.vm.time2=setTimeout(function() {
 										_this.el.children[0].style.webkitTransform = "translateX(" + num  * (-width) + "px)"
 										_this.el.children[0].style.webkitTransition = "-webkit-transform 0s"
 									}, 600)
@@ -110,6 +114,7 @@
 				},
 				unbind:function(){
 					clearInterval(this.vm.time)
+					clearTimeout(this.vm.time2)
 				}
 			}
 		}
@@ -127,14 +132,13 @@
 		height: auto;
 	}
 	.advertisement_identifying{
-		    padding: 2px;
-		    position: absolute;
-		    right: 0;
-		    bottom: 0;
-		    font-size: 12px;
-		    background: rgba(0,0,0,0.18);
-		    -webkit-transform: scale(0.7);
-		    transform: scale(0.7);
-		    color: white;
+	    padding: 2px;
+	    position: absolute;
+	    right: 0;
+	    bottom: 0;
+	    font-size: 12px;
+	    background: rgba(0,0,0,0.18);
+	    transform: scale(0.7);
+	    color: white;
 	}
 </style>
