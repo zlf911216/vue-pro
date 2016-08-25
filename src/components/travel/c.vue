@@ -1,5 +1,5 @@
 <template>	
-	<div class=""></div>
+	<div flex="dir:left main:center cross:center" class="new_travel_message"><i><img :src='writeMessage'></i>发表新文章</div>
 	<div class="travel_list" v-for="item in message" track-by="$index">
 		<div v-if='item.adv' class="adv_box">
 			<adv-picture my-style='{"width":"100%"}' my-random='false' my-position="H5-B1"></adv-picture>		
@@ -28,7 +28,8 @@
 	export default {
 		data(){
 			return{
-				message:null
+				message:null,
+				writeMessage:require('../../assets/images/msg_write.png')
 			}
 		},
 		methods:{
@@ -63,6 +64,9 @@
 	}
 </script>
 <style scoped lang='scss'>
+	.new_travel_message{
+
+	}
 	.travel_list{
 		position: relative;
 		background:white;
