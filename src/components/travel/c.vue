@@ -1,4 +1,5 @@
 <template>	
+	<div class=""></div>
 	<div class="travel_list" v-for="item in message" track-by="$index">
 		<div v-if='item.adv' class="adv_box">
 			<adv-picture my-style='{"width":"100%"}' my-random='false' my-position="H5-B1"></adv-picture>		
@@ -27,38 +28,34 @@
 	export default {
 		data(){
 			return{
-				message:[
-					{
-						name:'杭州游记',
-						time:'2016-7-12',
-						top_img:require('../../assets/images/top_1.jpg'),
-						message:'西湖可以分为北线、西线和南线三条线路，今天先游览北线和西线的一部分，从白娘子与许仙相识的断桥开始，穿过白堤，到达风景如画的孤山，在这里我们可以品茶赏景，出了孤山不远便是...',
-						userid:'456'
-					},
-					{
-						name:'杭州游记1',
-						time:'2016-8-22',
-						top_img:require('../../assets/images/top_1.jpg'),
-						message:'西湖可以分为北线、西线和南线三条线路，今天先游览北线和西线的一部分，从白娘子与许仙相识的断桥开始，穿过白堤，到达风景如画的孤山，在这里我们可以品茶赏景，出了孤山不远便是...',
-						userid:'426'
-					},
-					{
-						name:'杭州游记2',
-						time:'2016-8-22',
-						top_img:require('../../assets/images/top_1.jpg'),
-						message:'西湖可以分为北线、西线和南线三条线路，今天先游览北线和西线的一部分，从白娘子与许仙相识的断桥开始，穿过白堤，到达风景如画的孤山，在这里我们可以品茶赏景，出了孤山不远便是...',
-						userid:'411'
-					}
-				]
+				message:null
 			}
 		},
 		methods:{
 			load:function(){
-				this.message=this.message.concat(this.message)
+				var _this=this
+				$.ajax({
+				url: '/travel',
+				type: 'post',
+				dataType: 'json',
+				success:function(data){
+					data.message.splice(2,0,{adv:true})
+					_this.message=_this.message.concat(data.message)
+				}
+			})	
 			}
 		},
 		ready: function () {
-			this.message.splice(2,0,{adv:true})
+			var _this=this
+			$.ajax({
+				url: '/travel',
+				type: 'post',
+				dataType: 'json',
+				success:function(data){
+					data.message.splice(2,0,{adv:true})
+					_this.message=data.message
+				}
+			})			
 		},
 		components:{
 			advPicture
