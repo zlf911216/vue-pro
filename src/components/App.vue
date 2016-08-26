@@ -20,6 +20,3 @@ import enter from './enter'
 		components:{banner,enter}
 	}
 </script>
-<style scoped lang='scss'>
-	
-</style>

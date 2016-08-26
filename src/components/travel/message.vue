@@ -103,10 +103,10 @@
 		line-height: 1.8rem;
 		font-size: 1rem;
 		text-align: center;
-		box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+		box-shadow: 2px 2px 2px rgba(162, 62, 13,0.55);
 	}
 	.go{
-		border-right: 0.15rem solid rgba(0,0,0,0.15)
+		border-right: 0.15rem solid rgba(162, 62, 13,0.25)
 	}
 	.back{
 		color:#a23e0d;
