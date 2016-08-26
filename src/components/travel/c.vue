@@ -23,12 +23,13 @@
 			<div class="see_more" flex="dir:top cross:center" @click.stop="con">查看全文</div>
 		</div>
 	</div>
-	<div class="goto_top"></div>
+	<gotop></gotop>
 	<div class="down_nav"></div>
 	<div class="loading_more" @click="load">点击加载更多</div>
 </template>
 <script>
 	import advPicture from '../advertisement/advPicture' 
+	import gotop from '../top.vue'
 	export default {
 		data(){
 			return{
@@ -69,7 +70,7 @@
 			})			
 		},
 		components:{
-			advPicture
+			advPicture,gotop
 		}
 	}
 </script>

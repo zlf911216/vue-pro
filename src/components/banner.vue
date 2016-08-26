@@ -20,12 +20,12 @@
 		},
 		ready:function(){
 		 	var mySwiper = new Swiper('.swiper-container', {
-		 		pagination : '.swiper-pagination',
-				autoplay: 4000,//可选选项，自动滑动
+		 		pagination:'.swiper-pagination',
+				autoplay: 4000,
 				autoplayDisableOnInteraction : false,
 				speed:600,
-				loop : true,
-				effect : 'fade',
+				loop:true,
+				effect:'fade',
 			})
 		}
 	}
