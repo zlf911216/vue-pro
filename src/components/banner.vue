@@ -30,7 +30,8 @@
 		}
 	}
 </script>
-<style scoped lang='scss'>
+<style scoped>
+	@import '../assets/css/swiper.css';
 	img{
 		display: block;
 		width: 100%;
