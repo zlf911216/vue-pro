@@ -2,11 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import $ from 'n-zepto'
 import swiper from 'swiper'
+import Resource from 'vue-resource'
 
 
 Vue.config.debug = true;
 var App = Vue.extend({});
 Vue.use(VueRouter);
+Vue.use(Resource);
 
 var router = new VueRouter({});
 router.map({
@@ -87,7 +89,10 @@ router.map({
         }
     }
 });
-
+router.beforeEach(function (transition) {
+    console.log("11")
+    transition.next()
+})
 router.redirect({
     '*':"/index"
 });
