@@ -92,6 +92,7 @@ router.map({
 router.beforeEach(function (transition) {
     console.log("11")
     transition.next()
+    $('body').scrollTop(0)
 })
 router.redirect({
     '*':"/index"

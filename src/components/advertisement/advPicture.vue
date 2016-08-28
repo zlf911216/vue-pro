@@ -50,11 +50,7 @@
 				bind:function(){
 					if(this.vm.myWord){this.vm.identifying_word=this.vm.myWord}
 					this.vm.style=$.extend(this.vm.style,JSON.parse(this.vm.myStyle))
-					// this.vm.$http.jsonp('http://n.youyuan.com/v20/user/tip.html',{
-					// 	params :{
-					// 		'position':this.vm.myPosition,
-					// 		'userId':this.vm.userId
-					// 	}
+					// this.vm.$http.jsonp('http://n.youyuan.com/v20/user/tip.html',{params :{'position':this.vm.myPosition,'userId':this.vm.userId}
 					// },'Jsoncallback').then(function(response){
 					// // 响应成功回调
 					// }, function(response){
