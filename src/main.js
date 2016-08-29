@@ -19,14 +19,4 @@ router.map({
         }
     }
 });
-<<<<<<< HEAD
-=======
-router.beforeEach(function (transition) {
-    console.log("11")
-    transition.next()
-})
-router.redirect({
-    '*':"/index"
-});
->>>>>>> parent of f8cf86a... zlf
 router.start(App, 'body');
