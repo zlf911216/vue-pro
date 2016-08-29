@@ -4,18 +4,22 @@
   "description": "A Vue.js project",
   "author": "Half <zlf911216@sina.com>",
   "private": true,
- "scripts": {
+  "scripts": {
     "dev": "node build/dev-server.js",
     "build": "rimraf dist && mkdirp dist && ncp static dist/static && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e"
   },
- "dependencies": {
+  "dependencies": {
+    "mongoose": "^4.5.10",
     "n-zepto": "^1.2.0",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
-    "vue": "^1.0.17"
+    "selenium-server": "^2.53.1",
+    "swiper": "^3.3.1",
+    "vue": "^1.0.17",
+    "vue-resource": "^0.9.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
