@@ -1,7 +1,7 @@
 <template>	
 	<div class="travel_list" v-for="item in travelMessage" track-by="$index">
 		<div v-if='item.adv' class="adv_box">
-			<adv-picture my-style='{"width":"100%"}' my-position="H5-B1" my-word="你好" :my-random='true' :my-loop='true' :my-identifying='true'></adv-picture>		
+			<adv-picture my-style='{"width":"100%"}' my-position="weixin-YF-2" my-word="你好" :my-random='true' :my-loop='true' :my-identifying='true'></adv-picture>		
 		</div>
 		<div v-else class="travel_box" @click="getinmessage(item.userid)">
 			<p class="travel_title" flex="dir:left main:justify cross:center">

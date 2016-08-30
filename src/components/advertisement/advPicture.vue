@@ -18,7 +18,7 @@
 				message:null,//广告内容
 				province:null,//用户地区
 				style:{width:'100%'},	
-				userId:'474503697',//用户ID
+				userId:'607752652',//用户ID
 				identifying_word:"广告",//右下角标示文字
 				voice_url: "/images/blue_voice.png",
 				time:null,
