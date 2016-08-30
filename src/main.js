@@ -19,20 +19,12 @@ router.map({
         subRoutes:{
             '/my': {
                 component: function (resolve) {
-                    require(['./components/my.vue'], resolve)
-                },
-                subRoutes:{
-                    '/main':{
-                        component: function (resolve) {
-                            require(['./components/my/a.vue'], resolve)
-                        }
-                    },
-
+                    require(['./components/my/a.vue'], resolve)
                 }
             },
             '/article': {
                 component: function (resolve) {
-                    require(['./components/article.vue'], resolve)
+                    require(['./components/article/article.vue'], resolve)
                 },
                 subRoutes:{
                     '/':{
@@ -43,7 +35,7 @@ router.map({
                     '/:userId':{
                         name:'article_message',
                         component: function (resolve) {
-                            require(['./components/article/message.vue'], resolve)
+                            require(['./components/article/details-message.vue'], resolve)
                         }
                     }
 
@@ -51,7 +43,7 @@ router.map({
             },
             '/travel': {
                 component: function (resolve) {
-                    require(['./components/travel.vue'], resolve)
+                    require(['./components/travel/travel.vue'], resolve)
                 },
                 subRoutes:{
                     '/':{
@@ -62,7 +54,7 @@ router.map({
                     '/:userId':{
                         name:'travel_message',
                         component: function (resolve) {
-                            require(['./components/travel/message.vue'], resolve)
+                            require(['./components/travel/details-message.vue'], resolve)
                         }
                     }
 
@@ -70,7 +62,7 @@ router.map({
             },
             '/eat': {
                 component: function (resolve) {
-                    require(['./components/eat.vue'], resolve)
+                    require(['./components/eat/eat.vue'], resolve)
                 },
                 subRoutes:{
                     '/':{
@@ -81,7 +73,7 @@ router.map({
                     '/:userId':{
                         name:'eat_message',
                         component: function (resolve) {
-                            require(['./components/eat/message.vue'], resolve)
+                            require(['./components/eat/details-message.vue'], resolve)
                         }
                     }
                 }

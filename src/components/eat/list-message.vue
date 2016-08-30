@@ -3,7 +3,7 @@
 		<div v-if='item.adv' class="adv_box">
 			<adv-picture my-style='{"width":"100%"}' my-position="weixin-YF-2" my-word="你好" :my-random='true' :my-loop='true' :my-identifying='true'></adv-picture>		
 		</div>
-		<div v-else class="travel_box" @click="getinmessage(item.userid)">
+		<div v-else class="travel_box"  v-link='{path:item.userid,append:true}'>
 			<p class="travel_title" flex="dir:left main:justify cross:center">
 				<span class="travel_name">
 					<span>-- </span>
@@ -23,15 +23,10 @@
 <script>
 	import advPicture from '../advertisement/advPicture' 
 	export default {
-		methods:{
-			getinmessage:function(id){
-				this.$route.router.go('/index/travel/'+id)
-			}
-		},
 		ready: function () {
 			var _this=this
 			$.ajax({
-				url: '/travel',
+				url: '/eat',
 				type: 'post',
 				dataType: 'json',
 				success:function(data){

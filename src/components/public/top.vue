@@ -25,7 +25,7 @@
 	.goto-top{
 		height:1.785rem;
 		width:1.785rem;
-		background: url(../assets/images/note_sprites1.png) no-repeat -11.58rem -10.32rem;
+		background: url(../../assets/images/note_sprites1.png) no-repeat -11.58rem -10.32rem;
 	    background-size: 15rem 13.2rem;
 	}
 </style>

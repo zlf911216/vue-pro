@@ -11,10 +11,10 @@
 		data(){
 			return{
 				msg:[
-					{url:require('../assets/images/1.jpg')},
-					{url:require('../assets/images/3.jpg')},
-					{url:require('../assets/images/5.jpg')},
-					{url:require('../assets/images/6.jpg')}
+					{url:require('../../assets/images/1.jpg')},
+					{url:require('../../assets/images/3.jpg')},
+					{url:require('../../assets/images/5.jpg')},
+					{url:require('../../assets/images/6.jpg')}
 				]
 			}
 		},
@@ -31,7 +31,7 @@
 	}
 </script>
 <style scoped>
-	@import '../assets/css/swiper.css';
+	@import '../../assets/css/swiper.css';
 	img{
 		display: block;
 		width: 100%;
