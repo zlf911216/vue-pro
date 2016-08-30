@@ -100,7 +100,7 @@
 		top:0;
 		left:0; 
 		background: white;
-		line-height: 1.8rem;
+		line-height: 2.2rem;
 		font-size: 1rem;
 		text-align: center;
 		box-shadow: 2px 2px 2px rgba(162, 62, 13,0.55);

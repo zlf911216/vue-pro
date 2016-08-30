@@ -1,7 +1,7 @@
 import Vue from 'vue'
+import 'n-zepto'
+import 'swiper'
 import VueRouter from 'vue-router'
-import $ from 'n-zepto'
-import swiper from 'swiper'
 import Resource from 'vue-resource'
 
 
