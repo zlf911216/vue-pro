@@ -4,8 +4,8 @@
   	<router-view></router-view>
 </template>
 <script>
-import banner from './banner'
-import enter from './enter'
+import banner from './public/banner'
+import enter from './public/enter'
 	export default {
 		data(){
 			return{

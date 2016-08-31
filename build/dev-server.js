@@ -54,7 +54,6 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-// serve pure static assets
 app.use('/static', express.static('./static'))
 app.use('/outimg', express.static('./outimg'))
 
@@ -85,6 +84,61 @@ app.post('/travel', function(req, res) {
       ]}
     )
 })
+app.post('/eat', function(req, res) {
+    res.json(
+      {message:[
+        {
+          name:'糖醋鲤鱼',
+          time:'2016-8-12',
+          top_img:('./outimg/fish.jpg'),
+          message:'“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当...',
+          userid:"11889"
+        },
+        {
+          name:'蓝莓山药',
+          time:'2016-8-15',
+          top_img:('./outimg/fish.jpg'),
+          message:'“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当...',
+          userid:"15445646"
+        },
+        {
+          name:'西湖醋鱼',
+          time:'2016-8-17',
+          top_img:('./outimg/fish.jpg'),
+          message:'“糖醋鲤鱼”也是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。据说“糖醋鲤鱼”最早始于黄河重镇——洛口镇。当...',
+          userid:"457"
+        }
+      ]}
+    )
+})
+app.post('/article', function(req, res) {
+    res.json(
+      {message:[
+        {
+          name:'vue',
+          time:'2016-8-22',
+          top_img:('./outimg/vue.jpg'),
+          message:'Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...',
+          userid:"113"
+        },
+        {
+          name:'angular',
+          time:'2016-8-25',
+          top_img:('./outimg/vue.jpg'),
+          message:'Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...',
+          userid:"1444"
+        },
+        {
+          name:'react',
+          time:'2016-8-27',
+          top_img:('./outimg/vue.jpg'),
+          message:'Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以...',
+          userid:"1888"
+        }
+      ]}
+    )
+})
+
 
 module.exports = app.listen(8080, function (err) {
   if (err) {

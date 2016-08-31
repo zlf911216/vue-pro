@@ -1,7 +1,7 @@
 import Vue from 'vue'
+import 'n-zepto'
+import 'swiper'
 import VueRouter from 'vue-router'
-import $ from 'n-zepto'
-import swiper from 'swiper'
 import Resource from 'vue-resource'
 
 
@@ -16,23 +16,16 @@ router.map({
         component: function (resolve) {
             require(['./components/App.vue'], resolve)
         },
+        auth: true,
         subRoutes:{
             '/my': {
                 component: function (resolve) {
-                    require(['./components/my.vue'], resolve)
-                },
-                subRoutes:{
-                    '/main':{
-                        component: function (resolve) {
-                            require(['./components/my/a.vue'], resolve)
-                        }
-                    },
-
+                    require(['./components/my/a.vue'], resolve)
                 }
             },
             '/article': {
                 component: function (resolve) {
-                    require(['./components/article.vue'], resolve)
+                    require(['./components/article/article.vue'], resolve)
                 },
                 subRoutes:{
                     '/':{
@@ -43,7 +36,7 @@ router.map({
                     '/:userId':{
                         name:'article_message',
                         component: function (resolve) {
-                            require(['./components/article/message.vue'], resolve)
+                            require(['./components/article/details-message.vue'], resolve)
                         }
                     }
 
@@ -51,7 +44,7 @@ router.map({
             },
             '/travel': {
                 component: function (resolve) {
-                    require(['./components/travel.vue'], resolve)
+                    require(['./components/travel/travel.vue'], resolve)
                 },
                 subRoutes:{
                     '/':{
@@ -62,7 +55,7 @@ router.map({
                     '/:userId':{
                         name:'travel_message',
                         component: function (resolve) {
-                            require(['./components/travel/message.vue'], resolve)
+                            require(['./components/travel/details-message.vue'], resolve)
                         }
                     }
 
@@ -70,7 +63,7 @@ router.map({
             },
             '/eat': {
                 component: function (resolve) {
-                    require(['./components/eat.vue'], resolve)
+                    require(['./components/eat/eat.vue'], resolve)
                 },
                 subRoutes:{
                     '/':{
@@ -81,20 +74,34 @@ router.map({
                     '/:userId':{
                         name:'eat_message',
                         component: function (resolve) {
-                            require(['./components/eat/message.vue'], resolve)
+                            require(['./components/eat/details-message.vue'], resolve)
                         }
                     }
                 }
             },
         }
+    },
+    '/login':{
+        component: function (resolve) {
+            require(['./components/login/login.vue'], resolve)
+        },
+        auth: false
     }
 });
 router.beforeEach(function (transition) {
-    console.log("11")
+    if (transition.to.auth) {
+        if(localStorage.getItem('userid')!="admin"||localStorage.getItem('password')!="admin"){
+            transition.abort()
+        }
+    }else{
+        if(localStorage.getItem('userid')=="admin"&&localStorage.getItem('password')=="admin"){
+            transition.abort()
+        }
+    }
     transition.next()
-    $('body').scrollTop(0)
+    $('body').scrollTop(0) 
 })
 router.redirect({
-    '*':"/index"
+    '*':"/login"
 });
 router.start(App, 'body');

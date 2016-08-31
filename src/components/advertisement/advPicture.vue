@@ -1,12 +1,12 @@
 
-<!-- 	<adv my-style='{"width":"100%"}' my-loop='false' my-random='false' my-position="H5-B1" my-identifying='false' my-word="你好"></adv> -->
+<!-- <adv-picture my-style='{"width":"100%"}' my-position="H5-B1" my-word="你好" :my-random='true' :my-loop='false' :my-identifying='true'></adv-picture> -->
 
 <template>
 	<div class="advertisement_box" v-init="run" :style="style">
 		<div class="advertisement_message" flex='dir:left box:mean'>		
 			<img v-for="item in message" track-by="$index" class="adv_img" :src='item.picUrl' @touchstart="tj_and_link(item.activeid,item.linkUrl)">
 		</div>
-		<div v-show="!myIdentifying" class="advertisement_identifying">{{identifying_word}}</div>
+		<div v-show="myIdentifying" class="advertisement_identifying">{{identifying_word}}</div>
 	</div>
 </template>
 <script>
@@ -18,10 +18,9 @@
 				message:null,//广告内容
 				province:null,//用户地区
 				style:{width:'100%'},	
-				userId:'474503697',//用户ID
+				userId:'607752652',//用户ID
 				identifying_word:"广告",//右下角标示文字
 				voice_url: "/images/blue_voice.png",
-				picturn:false,
 				time:null,
 				time2:null
 			}
@@ -77,7 +76,7 @@
 						num=0,
 						width=_this.el.offsetWidth,
 						max=_this.vm.message.length
-						if(!_this.vm.myRandom){num=Math.floor(Math.random() * _this.vm.message.length)}	
+						if(_this.vm.myRandom){num=Math.floor(Math.random() * (_this.vm.message.length/2))}	
 						_this.el.children[0].style.width=width*max+"px"
 
 						tj({
@@ -92,7 +91,7 @@
 						});
 						_this.el.children[0].style.webkitTransform = "translateX(" + num * (-width) + "px)"
 						_this.el.children[0].style.webkitTransition = "-webkit-transform 0s "
-						if(!_this.vm.myLoop){							
+						if(_this.vm.myLoop){							
 						 	_this.vm.time=setInterval(function() {
 						 		num += 1;
 								tj({

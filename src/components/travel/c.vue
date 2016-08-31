@@ -8,9 +8,9 @@
 	<public-load></public-load>	
 </template>
 <script>
-	import publicMessage from '../public/public_message' 
-	import publicLoad from '../public/public_loading' 
-	import gotop from '../top.vue'
+	import publicMessage from './list-message' 
+	import publicLoad from './loading' 
+	import gotop from '../public/top.vue'
 	export default {
 		data(){
 			return{
