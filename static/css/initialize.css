@@ -13,4 +13,5 @@ legend { color:#000; }
 fieldset, img { border:0; } 
 button, input, select, textarea { font-size:100%; } 
 table { border-collapse:collapse; border-spacing:0; } 
-body{background: #f4f4f4;font-family: '微软雅黑';}
+html{height: 100%;}
+body{background: #f4f4f4;font-family: '微软雅黑';height: 100%;overflow: auto}

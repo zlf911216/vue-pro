@@ -16,6 +16,7 @@ router.map({
         component: function (resolve) {
             require(['./components/App.vue'], resolve)
         },
+        auth: true,
         subRoutes:{
             '/my': {
                 component: function (resolve) {
@@ -79,14 +80,28 @@ router.map({
                 }
             },
         }
+    },
+    '/login':{
+        component: function (resolve) {
+            require(['./components/login/login.vue'], resolve)
+        },
+        auth: false
     }
 });
 router.beforeEach(function (transition) {
-    console.log("11")
+    if (transition.to.auth) {
+        if(localStorage.getItem('userid')!="admin"||localStorage.getItem('password')!="admin"){
+            transition.abort()
+        }
+    }else{
+        if(localStorage.getItem('userid')=="admin"&&localStorage.getItem('password')=="admin"){
+            transition.abort()
+        }
+    }
     transition.next()
-    $('body').scrollTop(0)
+    $('body').scrollTop(0) 
 })
 router.redirect({
-    '*':"/index"
+    '*':"/login"
 });
 router.start(App, 'body');

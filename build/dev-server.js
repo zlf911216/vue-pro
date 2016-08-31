@@ -54,7 +54,6 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-// serve pure static assets
 app.use('/static', express.static('./static'))
 app.use('/outimg', express.static('./outimg'))
 
