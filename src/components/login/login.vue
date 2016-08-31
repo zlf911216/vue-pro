@@ -16,7 +16,7 @@
 			</i>
 			<input type="password" id="password" placeholder="密码" flex-box="1" v-model="password">
 		</div>
-		<div class="login" @touchstart="login" @touchend="end" :class="{'touch':touch}">登 录</div>
+		<div class="login" @touchstart="login" @touchend="end" :class="{'touch':touch}">log in</div>
 	</div>
 </template>
 <script>
