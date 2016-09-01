@@ -4,7 +4,7 @@
 <template>
 	<div class="advertisement_box" v-init="run" :style="style">
 		<div class="advertisement_message" flex='dir:left box:mean'>		
-			<img v-for="item in message" track-by="$index" class="adv_img" :src='item.picUrl' @touchstart="tj_and_link(item.activeid,item.linkUrl)">
+			<img v-for="item in message" track-by="$index" class="adv_img" :src='item.picUrl' @touchstart="tj(item.activeid)" @touchend="go_link(item.linkUrl)">
 		</div>
 		<div v-show="myIdentifying" class="advertisement_identifying">{{identifying_word}}</div>
 	</div>
@@ -27,7 +27,7 @@
 		},
 		props:['myStyle','myLoop','myRandom','myPosition','myIdentifying','myWord'],
 		methods:{
-			tj_and_link:function(activeid,url){
+			tj:function(activeid){
 				var _this=this
 				tj({
 					'tjtype': 'adStatistics',
@@ -39,9 +39,9 @@
 					"userid": _this.userId,
 					"adtype": "Click"
 				});
-				setTimeout(function(){
-					location.href=url	
-				},300)
+			},
+			go_link:function(url){
+				location.href=url	
 			}
 		},
 		directives:{
@@ -49,12 +49,6 @@
 				bind:function(){
 					if(this.vm.myWord){this.vm.identifying_word=this.vm.myWord}
 					this.vm.style=$.extend(this.vm.style,JSON.parse(this.vm.myStyle))
-					// this.vm.$http.jsonp('http://n.youyuan.com/v20/user/tip.html',{params :{'position':this.vm.myPosition,'userId':this.vm.userId}
-					// },'Jsoncallback').then(function(response){
-					// // 响应成功回调
-					// }, function(response){
-					// // 响应错误回调
-					// });
 					var _this=this;
 					$.ajax({
 						url: 'http://n.youyuan.com/v20/user/tip.html',
