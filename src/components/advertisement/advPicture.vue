@@ -3,7 +3,7 @@
 
 <template>
 	<div class="advertisement_box" v-init="run" :style="style">
-		<div class="advertisement_message" flex='dir:left box:mean'>		
+		<div class="advertisement_message" flex='dir:left box:mean cross:center'>		
 			<img v-for="item in message" track-by="$index" class="adv_img" :src='item.picUrl' @touchstart="tj(item.activeid)" @touchend="go_link(item.linkUrl)">
 		</div>
 		<div v-show="myIdentifying" class="advertisement_identifying">{{identifying_word}}</div>
@@ -124,11 +124,6 @@
 		position: relative;
 		overflow: hidden;
 		margin:auto;
-	}
-	.adv_img{
-		display: block;
-		width: 100%;
-		height: auto;
 	}
 	.advertisement_identifying{
 	    padding: 2px;

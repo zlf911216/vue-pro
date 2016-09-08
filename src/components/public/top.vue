@@ -1,13 +1,37 @@
 <template>
-    <div class="box" flex="main:center cross:center" @click='top'>
+    <div class="box" v-out flex="main:center cross:center" @click='top'>
     	<i class="goto-top"></i>
     </div>
 </template>
 <script>
 	export default {
+		data(){
+			return{
+				time:null
+			}
+		},
 		methods:{
 			top(){
-				$('body').scrollTop(0)
+				var height=document.body.scrollTop
+				var now_height=height
+				var time=400/16.7
+				var speed=height/time
+				var _this=this
+				_this.time=setInterval(function(){
+					now_height-=speed
+					window.scrollTo(0,now_height)
+					if(now_height<=0){
+						clearInterval(_this.time)
+					}
+				},16.7)	
+			}
+		},
+		directives:{
+			out:{
+				unbind:function(){
+					clearInterval(this.vm.time)
+					console.log("1")
+				}
 			}
 		}
 	}
