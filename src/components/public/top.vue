@@ -30,7 +30,6 @@
 			out:{
 				unbind:function(){
 					clearInterval(this.vm.time)
-					console.log("1")
 				}
 			}
 		}

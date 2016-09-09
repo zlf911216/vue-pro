@@ -22,14 +22,9 @@
 		data(){
 			return{
 				userid:this.$route.params.userId,
-				open:false,
 				back_img:require('../../assets/images/back.png'),
 				top_img:require('../../assets/images/1.jpg'),
 			}
-		},
-		ready: function () {
-			this.$dispatch('open',this.open)
-			this.open=true
 		},
 		components:{
 			advPicture
@@ -41,8 +36,11 @@
 		},
 		directives:{
 			showban:{
+				bind:function(){
+					this.vm.$store.state.top_ENTER=false
+				},
 				unbind:function(){
-					this.vm.$dispatch('open',this.vm.open)
+					this.vm.$store.state.top_ENTER=true
 				}
 			}
 		}

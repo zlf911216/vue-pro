@@ -14,7 +14,7 @@
 					dataType: 'json',
 					success:function(data){
 						data.message.splice(2,0,{adv:true})
-						_this.$dispatch('add_message',data.message)
+						_this.$store.state.eat_MESSAGE.message=_this.$store.state.eat_MESSAGE.message.concat(data.message)
 						
 					}
 				})	

@@ -1,5 +1,5 @@
 <template>	
-	<div class="travel_list" v-for="item in travelMessage" track-by="$index">
+	<div class="travel_list" v-for="item in message" track-by="$index">
 		<div v-if='item.adv' class="adv_box">
 			<adv-picture my-style='{"width":"100%"}' my-position="weixin-YF-2" my-word="你好" :my-random='true' :my-loop='true' :my-identifying='true'></adv-picture>		
 		</div>
@@ -31,11 +31,15 @@
 				dataType: 'json',
 				success:function(data){
 					data.message.splice(2,0,{adv:true})
-					_this.$dispatch('ready_message',data.message)
+					_this.$store.state.travel_MESSAGE.message=data.message
 				}
 			})			
 		},
-		props:['travelMessage'],
+		vuex:{
+			getters:{
+				message:state=>state.travel_MESSAGE.message
+			}
+		},
 		components:{
 			advPicture
 		}

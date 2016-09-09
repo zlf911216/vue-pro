@@ -3,7 +3,7 @@
 		<i><img :src='writeMessage'></i>
 		发表新做法
 	</div>
-	<public-message  :travel-message='show_message'></public-message>
+	<public-message></public-message>
 	<gotop></gotop>
 	<public-load></public-load>	
 </template>
@@ -18,14 +18,6 @@
 				writeMessage:require('../../assets/images/msg_write.png')
 			}
 		},
-		events: {
-		    'ready_message': function (message) {
-			    this.show_message=message
-		    },
-		    'add_message':function(message){
-		    	this.show_message=this.show_message.concat(message)
-		    }
-	  	},
 		components:{
 			publicMessage,gotop,publicLoad
 		}
