@@ -21,6 +21,11 @@ router.map({
         },
         auth: true,
         subRoutes:{
+            '/': {
+                component: function (resolve) {
+                    require(['./components/my/a.vue'], resolve)
+                }
+            },
             '/my': {
                 component: function (resolve) {
                     require(['./components/my/a.vue'], resolve)

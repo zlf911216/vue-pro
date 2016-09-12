@@ -4,16 +4,20 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-	article_MESSAGE:{
-		message:null
+	article_MESSAGE: {
+		message: null
 	},
-    travel_MESSAGE:{
-		message:null
-    },
-    eat_MESSAGE:{
-		message:null
-    },
-    top_ENTER:true
+	travel_MESSAGE: {
+		message: null
+	},
+	eat_MESSAGE: {
+		message: null
+	},
+	top_ENTER: true
+}
+
+const banner_open = {
+	top_ENTER: true
 }
 
 

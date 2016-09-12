@@ -18,7 +18,7 @@ module.exports = merge(baseConfig, {
   vue: {
     loaders: cssLoaders({
       sourceMap: SOURCE_MAP,
-      extract: true
+      extract: false
     })
   },
   plugins: [

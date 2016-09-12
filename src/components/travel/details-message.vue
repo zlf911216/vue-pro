@@ -57,6 +57,7 @@
 		directives:{
 			showban:{
 				bind:function(){
+					console.log(this.vm.$store.banner_open)
 					this.vm.$store.state.top_ENTER=false
 				},
 				unbind:function(){
