@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist/static'),
     publicPath: './static/',
-    filename: '[name].js'
+    filename: 'js/[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -60,7 +60,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: '[name].[ext]'
+          name: 'images/[name].[ext]'
         }
       }
     ]

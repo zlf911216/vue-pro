@@ -12,8 +12,8 @@ module.exports = merge(baseConfig, {
   devtool: SOURCE_MAP ? '#source-map' : false,
   output: {
     //在name/id后载入[chunkhash]载入哈希值
-    filename: '[name].js',
-    chunkFilename: '[id].js'
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[id].js'
   },
   vue: {
     loaders: cssLoaders({
